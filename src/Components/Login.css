@@ -1,0 +1,13 @@
+.login{
+    border: 1px solid #3870676b;
+    border-radius: 5px;
+}
+.google{
+    /* font-size: 1.2rem; */
+    border-style: none ;
+    border: 1px solid #3870676b;
+    border-radius: 100px;
+}
+.google:hover{
+    background-color: #3870676b;
+}

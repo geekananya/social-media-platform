@@ -1,0 +1,18 @@
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+}
+
+.navigate{
+    border-right: 1px solid #3870676b;
+}
+.rp{
+    border-left: 1px solid #3870676b;
+}
+
+.sticky{
+    position: sticky;
+    top: 0;
+}
+
+/* yellow and aqua/ torquoise with opacity */

@@ -1,0 +1,6 @@
+.content{
+    font-family: sans-serif; 
+}
+.comment:hover{
+    content: url('../assets/icons/comment-fill.svg');
+}
