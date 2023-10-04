@@ -4,7 +4,7 @@ export default function UserProfile(props){
     console.log(props.user.pfp_url);
     return(
         <div>
-            <div className="flex justify-around items-center">
+            <div className="flex justify-around items-center pr2">
                 <img src={`${props.user.pfp_url}`} alt='pfp' className='w-40' height={'auto'}/>
                 <div className='mr0'>
                     <h1 className="f2 head tc mv5">{props.user.username}</h1>

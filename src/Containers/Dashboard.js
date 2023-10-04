@@ -5,12 +5,6 @@ import Content from  '../Containers/Content';
 import RightPane from  '../Components/RightPane';
 import './Dashboard.css'
 
-//states: screen size, toggle-menucomponent, tabs on timeline section.
-//states: Profile clicked or not--show profile on side or redirect to profile.
-//state to manage tabs of timeline in phone.
-//state to manage current middle section (as chosen from left pane) -- done
-
-
 class Dashboard extends React.Component {    
     constructor(){
         super();
@@ -43,18 +37,12 @@ class Dashboard extends React.Component {
             currentTab: current
         })
     }
-    
-    // showUserCard = (id) =>{
-    //     console.log("CLick detected in dashboard", id);
-    //     this.setState({userId: id})
-    // }
 
     callLogout = () =>{
         this.props.onLogout();
     }
 
     render(){
-        console.log(this.state.isMobile, "in dashboard");
         return(
             <div className='grid'>
                 { this.state.isMobile?
@@ -62,9 +50,7 @@ class Dashboard extends React.Component {
                     <Navigate handleClick = {this.switchMiddleContent} current={this.state.currentTab} logout={this.callLogout}/>
                 }
                 <Content current={this.state.currentTab} user={this.state.userData} getUserId={this.showUserCard} />
-                <RightPane userId={this.state.userId} />
-                    {/* <TabComponent />
-                    <SectionComponent />  */}
+                {!this.state.isMobile && <RightPane userId={this.state.userId}/>}
             </div>
         )
     }

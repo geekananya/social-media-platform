@@ -3,7 +3,6 @@ import Login from './Login';
 import Register from './Register';
 import {useState} from 'react';
 
-
 const LoginPage = (props) => {
   
   const [route, setRoute] = useState('login');
@@ -15,8 +14,7 @@ const LoginPage = (props) => {
   function submitform(){
     props.onSignIn();
   }
-  
-  console.log(props.isMobile, "in loginpage");
+
   return (
     <div className={`${(props.isMobile? 'login-grid': 'flex')} justify-center items-center vh-100`}>
       <Logo isMobile={props.isMobile}/>
