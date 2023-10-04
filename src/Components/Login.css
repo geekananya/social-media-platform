@@ -11,3 +11,7 @@
 .google:hover{
     background-color: #3870676b;
 }
+.login-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 300px);
+}

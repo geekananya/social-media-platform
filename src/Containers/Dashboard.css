@@ -16,3 +16,9 @@
 }
 
 /* yellow and aqua/ torquoise with opacity */
+
+@media only screen and (max-width: 400px){
+    .grid{
+        grid-template-columns: 40px auto;
+    }
+}

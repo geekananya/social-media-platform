@@ -14,7 +14,7 @@ export default function UserProfile(props){
                 </div>
             </div>
             <h2>Posts and Activity</h2>
-            <Posts limit={props.limit}/>
+            <Posts url={props.url} />
         </div>
     )
 }

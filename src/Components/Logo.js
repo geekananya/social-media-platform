@@ -1,8 +1,8 @@
 import logo from '../assets/logo.jpg'
 
-const Logo = () =>{
+const Logo = (props) =>{
     return(
-        <div className="w-40">
+        <div className={`pa4 ${(props.isMobile? '': 'w-40')}`}>
             <img src={logo} alt="Logo" className="w-100" />
         </div>
     )

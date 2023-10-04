@@ -1,10 +1,8 @@
 import React from 'react';
-// import Like from '../Components/Like';
 import like from '../assets/icons/like.svg';
 import liked from '../assets/icons/like-fill.svg';
-import unlike from '../assets/icons/unlike.svg';
+// import unlike from '../assets/icons/unlike.svg';
 import comment from '../assets/icons/comment.svg';
-import commenthover from '../assets/icons/comment-fill.svg';
 
 export default class Posts extends React.Component{
     constructor(){
@@ -18,7 +16,7 @@ export default class Posts extends React.Component{
 
     componentDidMount(){
         
-        fetch(`https://dummyjson.com/posts?limit=${this.props.limit}&skip=10`)
+        fetch(this.props.url)
         .then(response => response.json())
         .then(obj => {
             this.setState({posts: obj.posts});
@@ -54,8 +52,8 @@ export default class Posts extends React.Component{
         if(posts.length===0)    return <div></div>;
         return posts.map((post)=>
         <div>
-                <div className='flex items-center pointer'
-                //  onClick={this.props.showuser}
+                <div className='flex items-center pointer' 
+                    // onClick = {()=> this.props.showuser(post.userId)}
                 >
                     {/*user-info*/}
                     <img src={`https://robohash.org/${post.userId}?set=set5&size=30x30`} alt='pfp' className='br-pill bg-dark-blue mh2'/>
