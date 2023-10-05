@@ -20,10 +20,11 @@ Built Using: ReactJS. [Deployed here]()
 # Dependencies
 ### Libraries and Frameworks:
 - React
-- Tachyons
-- React-burger-menu
+- Tachyons for styling
+- Firebase for Authentication
+- React-burger-menu for hamburger menu feature
 
 ### APIs:
-- DummyJson
-- Robohash
-- Nature Image API
+- DummyJson, JSONPlaceholder for text posts and users
+- Robohash for user profiles
+- Nature Image API for image posts
