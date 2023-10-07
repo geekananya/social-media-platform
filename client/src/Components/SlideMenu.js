@@ -1,4 +1,7 @@
 import React from 'react';
+import { auth } from '../firebaseConfig';
+import { signOut } from "firebase/auth";
+
 import logo from '../assets/logo_small.jpg'
 import home from '../assets/icons/home.svg'
 import profile from '../assets/icons/profile.svg'
@@ -17,19 +20,26 @@ class SlideMenu extends React.Component {
             menuOpen: false
         }
     }
+
+    async handleLogout(){
+        try{
+            await signOut(auth);
+            console.log("Successfully signed out");
+            this.props.logout();
+        } catch(error){
+            console.log("SOmething's wrong. COuldn't sign out");
+        }
+    }
     
     handleStateChange (state) {
         this.setState({menuOpen: state.isOpen})  
     }
-
     closeMenu () {
         this.setState({menuOpen: false})
     }
-
     toggleMenu () {
         this.setState(state => ({menuOpen: !state.menuOpen}))
     }
-
     handleOnOpen (){
         this.toggleMenu();
     }
@@ -47,14 +57,14 @@ class SlideMenu extends React.Component {
                         <div className='pl3'>
                             <div onClick = { ()=>{
                                 this.closeMenu();
-                                this.props.handleClick('home');
+                                this.props.handleClick(1);
                             }} className='flex pointer base-color-text2'>
                                 <img src={home} alt='' className='mr3'/> 
                                 <p className='dib'>Home</p>
                             </div>
                             <div onClick = { ()=>{
                                 this.closeMenu();
-                                this.props.handleClick('profile');
+                                this.props.handleClick(2);
                             }} className='flex pointer base-color-text2'>
                                 <img src={profile} alt='' className='mr3'/>
                                 <p className='dib'>Profile</p>
@@ -75,9 +85,9 @@ class SlideMenu extends React.Component {
                                 <img src={settings} alt='' className='mr3'/>
                                 <p className='dib' >Settings</p>
                             </div>
-                            <div className='flex pointer base-color-text2'>
+                            <div onClick={this.handleLogout} className='flex pointer base-color-text2'>
                                 <img src={logout} alt='' className='mr3'/>
-                                <p onClick={this.props.logout} className='dib' >LogOut</p>
+                                <p className='dib' >LogOut</p>
                             </div>
                         </div>
                     </div>

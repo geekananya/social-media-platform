@@ -1,3 +1,6 @@
+import { auth } from '../firebaseConfig';
+import { signOut } from "firebase/auth";
+
 import logo from '../assets/logo_small.jpg'
 import home from '../assets/icons/home.svg'
 import profile from '../assets/icons/profile.svg'
@@ -8,6 +11,18 @@ import settings from '../assets/icons/settings.svg'
 import logout from '../assets/icons/logout.svg'
 
 export default function Navigate(props){
+
+    async function handleLogout(){
+        try{
+            await signOut(auth);
+            console.log("Successfully signed out");
+            props.logout();
+        } catch(error){
+            console.log("SOmething's wrong. COuldn't sign out");
+        }
+    }
+
+    console.log("Navigate");
     return(
         <div className='base-color-bg h-100'>
             <div className="navigate sticky dib w-100 pa4 pt0 f3 flex-column justify-center">
@@ -15,11 +30,11 @@ export default function Navigate(props){
                 <div className='pl3'>
                     <div className='flex pointer base-color-text2'>
                         <img src={home} alt='' className='mr3'/>
-                        <p onClick={() => props.handleClick("home")} className={`dib ${(props.current==='home')?'b':''}`}>Home</p>
+                        <p onClick={() => props.handleClick(1)} className={`dib ${(props.current===1)?'b':''}`}>Home</p>
                     </div>
                     <div className='flex pointer base-color-text2'>
                         <img src={profile} alt='' className='mr3'/>
-                        <p onClick={() => props.handleClick("profile")} className={`dib ${(props.current==='profile')?'b':''}`}>Profile</p>
+                        <p onClick={() => props.handleClick(2)} className={`dib ${(props.current===2)?'b':''}`}>Profile</p>
                     </div>
                     <div className='flex pointer base-color-text2'>
                         <img src={search} alt='' className='mr3'/>
@@ -37,9 +52,9 @@ export default function Navigate(props){
                         <img src={settings} alt='' className='mr3'/>
                         <p className='dib' >Settings</p>
                     </div>
-                    <div className='flex pointer base-color-text2'>
+                    <div onClick={handleLogout} className='flex pointer base-color-text2'>
                         <img src={logout} alt='' className='mr3'/>
-                        <p onClick={props.logout} className='dib' >LogOut</p>
+                        <p className='dib' >LogOut</p>
                     </div>
                 </div>
             </div>

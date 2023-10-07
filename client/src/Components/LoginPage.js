@@ -11,8 +11,8 @@ const LoginPage = (props) => {
     setRoute((route==='login')?'register':'login');
   }  
 
-  function submitform(){
-    props.onSignIn();
+  function submitform(user){
+    props.onSignIn(user);
   }
 
   return (

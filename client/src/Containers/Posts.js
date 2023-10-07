@@ -20,12 +20,13 @@ export default class Posts extends React.Component{
         .then(obj => {
             this.setState({posts: obj.posts});
         })
+        console.log("Text posts loaded");
         fetch('https://nature-image-api.vercel.app/search?q=sunflower')
-        .then(response =>
-            response.json())
-            .then(obj => {
-                this.setState({imagePosts: obj.images, loading: false});
-            })
+        .then(response => response.json())
+        .then(obj => {
+            this.setState({imagePosts: obj.images, loading: false});
+        })
+        console.log("Images loaded");
     }
         
     toggleLike = (event) =>{
@@ -56,7 +57,9 @@ export default class Posts extends React.Component{
         if(posts.length===0)    return <div></div>;
         return posts.map((post)=>
             <div>
-                <div className='flex items-center pointer'>
+                <div className='flex items-center pointer'
+                    onClick = {()=>this.props.handleClick(post.userId)}
+                    >
                     {/*user-info*/}
                     <img src={`https://robohash.org/${post.userId}?set=set5&size=30x30`} alt='pfp' className='br-pill bg-dark-blue mh2'/>
                     <p className='f4 base-color-text2'>{`User #${post.userId}`}</p>
@@ -82,6 +85,7 @@ export default class Posts extends React.Component{
     }
     
     render(){
+        console.log("Posts");
         const {posts, imagePosts, loading} = this.state;
         return (
             <>
