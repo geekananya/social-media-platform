@@ -3,8 +3,9 @@ Built Using: ReactJS, NodeJs, Express and MongoDB. [Deployed here]()
 
 # Run the project
 1. Clone this repository.
-2. Migrate to the client directory by running `cd server` command on terminal.
+2. Migrate to the server directory by running `cd server` command on terminal.
 3. Run the command `npm install` on terminal to install required packages.
+4. Run `npm start` to run the server.
 2. Migrate to the client directory by running `cd client` command on terminal.
 3. Run the command `npm install` on terminal to install required packages.
 4. Run `npm start`.
