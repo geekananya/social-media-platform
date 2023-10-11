@@ -40,7 +40,12 @@ class Dashboard extends React.Component {
                     <SlideMenu handleClick = {this.switchMiddleContent} handleCreate={this.toggleCreate} logout={this.callLogout}/>:
                     <Navigate handleClick = {this.switchMiddleContent} handleCreate={this.toggleCreate} current={this.state.currentTab} logout={this.callLogout}/>
                 }
-                <Content current={this.state.currentTab} email={this.props.email} getUserId={this.showUserCard} setTab={this.switchMiddleContent}/>
+                <Content 
+                    current={this.state.currentTab}
+                    email={this.props.email}
+                    getUserId={this.showUserCard}
+                    setTab={this.switchMiddleContent}
+                />
                 {!this.props.isMobile && <RightPane user={this.props.email}/>}
                 {this.state.post && <CreatePost closeCreate={this.toggleCreate} email={this.props.email} />}
             </div>

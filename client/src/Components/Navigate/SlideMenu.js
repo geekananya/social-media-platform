@@ -14,8 +14,8 @@ import {slide as Menu} from 'react-burger-menu'
 import './SlideMenu.css'
 
 class SlideMenu extends React.Component {
-    constructor (props) {
-        super(props);
+    constructor () {
+        super();
         this.state = {
             menuOpen: false
         }
@@ -24,7 +24,7 @@ class SlideMenu extends React.Component {
     async handleLogout(){
         try{
             await signOut(auth);
-            this.props.logout();
+            logout();
         } catch(error){
             console.log("Something's wrong. Couldn't sign out", error);
         }
@@ -77,7 +77,11 @@ class SlideMenu extends React.Component {
                                 <p className='dib' >Notification</p>
                             </div>
                             <div className='flex pointer base-color-text2'
-                                onClick={this.props.handleCreate} >
+                                onClick = {() =>{
+                                    this.closeMenu();
+                                    this.props.handleCreate();
+                                }}
+                            >
                                 <img src={upload} alt='' className='mr3'/>
                                 <p className='dib' >Make a Post</p>
                             </div>

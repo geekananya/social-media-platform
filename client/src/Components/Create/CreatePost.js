@@ -130,7 +130,7 @@ class CreatePost extends Component {
                             placeholder="Tags (space-separated)"
                             value={this.state.tags}
                             onChange={this.handleInputChange}
-                            className="pa2 ma2 mt0 db"
+                            className="pa2 ma2 mt0 db w-60"
                         />
                         <label className="pa2 ma3">
                             <input
