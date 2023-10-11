@@ -33,7 +33,6 @@ export default function Content(props){
         }
     }
 
-
     const updateContent = useCallback(async (id) => {
         props.setTab(3);
         try {
@@ -46,7 +45,7 @@ export default function Content(props){
         } catch (error) {
             console.log("ERR:", error);
         }
-    }, []);
+    });
 
     return(
         <div className='content pa3 pt0'>

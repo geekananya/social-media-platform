@@ -7,8 +7,6 @@ export default function UserProfile(props){
     const [loading, setLoading] = useState(true);
 
     useEffect(() =>{
-        
-        console.log("EP useeffect");
         fetch(`/userinfo/?email=${props.email}`)
         .then(resp=> resp.json())
         .then(user=> {
@@ -36,7 +34,6 @@ export default function UserProfile(props){
                     <h1 className="f2 head tc mv4">{usermeta.username}</h1>
                     <p className='ma0 tc'>User #{`${usermeta.id}`}</p>
                     <p className="f4 tc">{`Friends - ${usermeta.friends}`}</p>
-                    {/* <p className="f4 tc">{`Total Reactions - ${props.user.reactions}`}</p> */}
                     <p className='b'>{`Account Active Since: ${usermeta.doj.substring(0,10)}`}</p>
                 </div>}
             </div>

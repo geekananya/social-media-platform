@@ -20,7 +20,7 @@ function Register(props){
       return;
     }
     try{
-      const res = await createUserWithEmailAndPassword(auth, email.current.value, password.current.value);
+      await createUserWithEmailAndPassword(auth, email.current.value, password.current.value);
       setErrorMessage("");
       //Request to server
       const name = fname.current.value + ' ' + lname.current.value;
