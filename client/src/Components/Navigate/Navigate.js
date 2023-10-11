@@ -21,7 +21,6 @@ export default function Navigate(props){
         }
     }
 
-    console.log("Navigate");
     return(
         <div className='base-color-bg h-100'>
             <div className="navigate sticky dib w-100 pa4 pt0 f3 flex-column justify-center">
