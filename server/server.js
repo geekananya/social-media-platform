@@ -14,11 +14,11 @@ const client = new MongoClient(uri, {
     deprecationErrors: true,
   }
 });
-// Connect the client to the server	(optional starting in v4.7)
+
 async function run() {
   try {
     await client.connect();
-    // Send a ping to confirm a successful connection
+    // confirm connection
     await client.db("admin").command({ ping: 1 });
     console.log("Pinged your deployment. You successfully connected to MongoDB!");
   } finally{}
@@ -47,7 +47,7 @@ app.post('/register', async (req, res)=>{
     //Insert user in DB
     let n = await db.collection("users").countDocuments();
     db.collection("users").insertOne({
-      _id: n+1,     // admin
+      _id: n+1,
       email: email,
       name: name,
       username: username,
@@ -75,7 +75,6 @@ app.get("/posts", (req, res)=>{          //on signin
 
 app.get("/postsbyuser", (req, res)=>{
   const {id} = req.query;
-  // console.log("id", typeof(id));
   db.collection("posts").find({poster_id: Number(id)}).toArray()
   .then(posts=> res.send(posts))
   .catch(error=> res.status(400).send("No posts available"+ error))
@@ -102,7 +101,7 @@ app.post('/createpost', async (req, res)=>{
     //Insert post in DB
     let n = await db.collection("posts").countDocuments();
     db.collection("posts").insertOne({
-      _id: n+1,     // admin
+      _id: n+1,
       poster_id: poster_id,
       poster: poster,
       image: hasImg,
