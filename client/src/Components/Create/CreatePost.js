@@ -11,7 +11,6 @@ class CreatePost extends Component {
             text: '',
             tags: '',
             isPublic: true,
-            // submitted: false
         };
     }
 
@@ -54,12 +53,6 @@ class CreatePost extends Component {
         .catch(err=>console.log("Caught error while fetching", err))
         this.props.closeCreate();
     };
-
-    // handleImageChange = (event) => {
-    //     this.setState({
-    //         image: new Blob([event.target.files[0]]),
-    //     });
-    // };
 
     handleCheckboxChange = () => {
         this.setState((prevState) => ({

@@ -33,8 +33,6 @@ export default class Posts extends React.Component{
         })
         )
         .catch((err) => console.log("Caught error while fetching", err));
-        console.log("Text posts loaded");
-        console.log("Posts->", this.state.posts);
     }
 
     toggleLike = (event) =>{

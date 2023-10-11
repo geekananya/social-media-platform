@@ -24,10 +24,9 @@ class SlideMenu extends React.Component {
     async handleLogout(){
         try{
             await signOut(auth);
-            console.log("Successfully signed out");
             this.props.logout();
         } catch(error){
-            console.log("SOmething's wrong. COuldn't sign out");
+            console.log("Something's wrong. Couldn't sign out", error);
         }
     }
     

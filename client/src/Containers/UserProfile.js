@@ -12,21 +12,17 @@ export default function UserProfile(props){
         fetch(`http://localhost:8080/userinfo/?email=${props.email}`)
         .then(resp=> resp.json())
         .then(user=> {
-            console.log("userb4", user);
             setUsermeta({
                 username: user.username,
                 id: user._id,
                 doj: user.join_date,
                 friends: 0
             })
-            console.log("user after", user);
             setLoading(false);
         })
         .catch(err=>console.log("Caught error while fetching", err))
     }, [props.email])
 
-    console.log("id", usermeta.id);  
-    // console.log("User Profile email", props.email);
     return(
         <div>
             <div className="flex justify-around items-center pr2">

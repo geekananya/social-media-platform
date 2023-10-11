@@ -28,7 +28,6 @@ function App() {
   const logGuest = () => setGuest(false);
   const logout = () => setLogged(false);
 
-  console.log(typeof(user));
   return (
     <div className="App">
       {logged? <Dashboard onLogout={logout} isMobile={isMobile} email={user} />:

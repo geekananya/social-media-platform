@@ -34,7 +34,6 @@ class Dashboard extends React.Component {
     }
 
     render(){
-        console.log("dashboard email", this.props.email);
         return(
             <div className='grid'>
                 {this.props.isMobile?

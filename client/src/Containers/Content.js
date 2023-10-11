@@ -47,8 +47,7 @@ export default function Content(props){
             console.log("ERR:", error);
         }
     }, []);
-
-    console.log("content email", props.email);
+    
     return(
         <div className='content pa3 pt0'>
             {

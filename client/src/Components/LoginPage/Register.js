@@ -22,16 +22,15 @@ function Register(props){
     try{
       const res = await createUserWithEmailAndPassword(auth, email.current.value, password.current.value);
       setErrorMessage("");
-      console.log('User registered successfully:', res.user.uid);
-      console.log("name=",fname.current.value+lname.current.value);
       //Request to server
+      const name = fname.current.value + ' ' + lname.current.value;
       fetch("http://localhost:8080/register", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          name: (fname.current.value+lname.current.value), 
+          name: name, 
           username: username.current.value,
           email: email.current.value,
         })
@@ -41,18 +40,17 @@ function Register(props){
       //Sign-in user
       props.submit(email.current.value);
     } catch(error){
-      setErrorMessage("Invalid Credentials!");
+      setErrorMessage(error.message.substring(10)+'!');
+      console.log(error); 
     }
   }
 
   const signUpGoogle = async ()=>{
-    console.log("google clicked")
     try{
         const userData = await signInWithPopup(auth, new GoogleAuthProvider());
         props.submit(userData.user.email);
     } catch(error){
         console.error('Registration failed', error);
-        console.log("credential from error", GoogleAuthProvider.credentialFromError(error));
     }
   }
 
@@ -63,19 +61,21 @@ function Register(props){
           {errorMessage.length>0 ? <p className='tc red light f6 ma0 mb2'>{errorMessage}</p>: <div></div>}
           <div className='flex justify-center'>
             <div className="mb3 mh3">
-              <label className="db" ref={fname}>First Name</label>
+              <label className="db">First Name</label>
               <input
                 type="text"
                 className="input-reset ba b--black-20 pa2 mb2 db w-100"
+                ref={fname}
                 autoComplete='off'
                 required
               />
             </div>
             <div className="mb3 mh3">
-              <label className="db" ref={lname}>Last Name</label>
+              <label className="db" >Last Name</label>
               <input
                 type="text"
                 className="input-reset ba b--black-20 pa2 mb2 db w-100"
+                ref={lname}
                 autoComplete='off'
               />
             </div>

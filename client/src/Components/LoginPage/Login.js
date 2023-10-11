@@ -14,23 +14,19 @@ const Login = (props) =>{
     const onSubmit = async () => {
         try {
             const userData = await signInWithEmailAndPassword(auth, email.current.value, password.current.value);
-            // console.log('User signed in successfully');
             setErrorMessage('');
             props.submit(userData.user.email);
         } catch (error) {
             setErrorMessage("Invalid Login Credentials!");
-            // console.error('Sign in failed', error);
         }
     }
 
     const signInGoogle = async ()=>{
-        console.log("google clicked")
         try{
             const userData = await signInWithPopup(auth, new GoogleAuthProvider());
             props.submit(userData.user.email);
         } catch(error){
             console.error('Registration failed', error);
-            console.log("credential from error", GoogleAuthProvider.credentialFromError(error));
         }
     }
 
