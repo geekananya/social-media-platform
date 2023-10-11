@@ -6,6 +6,10 @@
   font-family: Neue-Einstellung-bold;
   src: url('./assets/fonts/Hanken Design Co - Neue Einstellung Bold.otf');
 }
+@font-face {
+  font-family: Neue-Einstellung-light;
+  src: url('./assets/fonts/Hanken Design Co - Neue Einstellung Light.otf');
+}
 
 body{
   margin: 0;
@@ -14,6 +18,9 @@ body{
 
 .head{
   font-family: Neue-Einstellung-bold; 
+}
+.light{
+  font-family: Neue-Einstellung-light; 
 }
 /* body { */
   /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

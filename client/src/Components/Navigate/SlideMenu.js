@@ -1,15 +1,15 @@
 import React from 'react';
-import { auth } from '../firebaseConfig';
+import { auth } from '../../firebaseConfig';
 import { signOut } from "firebase/auth";
 
-import logo from '../assets/logo_small.jpg'
-import home from '../assets/icons/home.svg'
-import profile from '../assets/icons/profile.svg'
-import search from '../assets/icons/search.svg'
-import activity from '../assets/icons/activity.svg'
-import upload from '../assets/icons/upload.svg'
-import settings from '../assets/icons/settings.svg'
-import logout from '../assets/icons/logout.svg'
+import logo from '../../assets/logo_small.jpg'
+import home from '../../assets/icons/home.svg'
+import profile from '../../assets/icons/profile.svg'
+import search from '../../assets/icons/search.svg'
+import activity from '../../assets/icons/activity.svg'
+import upload from '../../assets/icons/upload.svg'
+import settings from '../../assets/icons/settings.svg'
+import logout from '../../assets/icons/logout.svg'
 import {slide as Menu} from 'react-burger-menu'
 import './SlideMenu.css'
 
@@ -77,7 +77,8 @@ class SlideMenu extends React.Component {
                                 <img src={activity} alt='' className='mr3'/>
                                 <p className='dib' >Notification</p>
                             </div>
-                            <div className='flex pointer base-color-text2'>
+                            <div className='flex pointer base-color-text2'
+                                onClick={this.props.handleCreate} >
                                 <img src={upload} alt='' className='mr3'/>
                                 <p className='dib' >Make a Post</p>
                             </div>

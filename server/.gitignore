@@ -1,0 +1,6 @@
+# dependencies
+/node_modules
+
+# config files
+.env
+data-entry.js

@@ -1,25 +1,54 @@
 import React from 'react'
 import Posts from './Posts'
 import UserProfile from './UserProfile'
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import './Content.css'
 
 export default function Content(props){
 
     const [showUser, setShowUser] = useState({
         status: false,
-        userId: 236
+        userId: 2,
+        email: props.email
     })
 
-    const updateContent = (id) =>{
-        props.setTab(3);
-        setShowUser({
-            status: true, 
-            userId: id
-        })
+    async function fetchEmail(id) {
+    try {
+      const response = await fetch(`http://localhost:8080/userinfobyid/?id=${id}`);
+      const user = await response.json();
+      return user.email;
+    } catch (error) {
+      console.error('Error in fetchEmail:', error);
+      throw error;
+    }
+    }
+    async function fetchId(email) {
+        try {
+        const response = await fetch(`http://localhost:8080/userinfo/?email=${email}`);
+        const user = await response.json();
+        return user._id;
+        } catch (error) {
+        console.error('Error in fetchId:', error);
+        throw error;
+        }
     }
 
-    console.log("Content");
+
+    const updateContent = useCallback(async (id) => {
+        props.setTab(3);
+        try {
+            const email = await fetchEmail(id);
+            setShowUser({
+                status: true,
+                userId: id,
+                email: email,
+            });
+        } catch (error) {
+            console.log("ERR:", error);
+        }
+    }, []);
+
+    console.log("content email", props.email);
     return(
         <div className='content pa3 pt0'>
             {
@@ -27,11 +56,11 @@ export default function Content(props){
                 ?<div>
                     <h1 className='head sticky base-color-bg base-color-text1 ma0 pl3 pv3'>{`>>Timeline`}</h1>
                     <hr/>
-                    <Posts url='https://dummyjson.com/posts?limit=10&skip=10' handleClick={updateContent} />
+                    <Posts entrypoint='posts' handleClick={updateContent} query='' />
                 </div> 
                 :<div>
                     <h1 className='head sticky base-color-bg base-color-text1 ma0 pl3 pv3'>{`>>User Profile`}</h1>
-                    <UserProfile user={props.user} url='https://dummyjson.com/posts/user/5' userId={showUser.userId} />
+                    <UserProfile email={(props.current===2)? props.email: showUser.email} userId={(props.current===2)? fetchId(props.email): showUser.userId} />
                 </div>
             }
         </div>

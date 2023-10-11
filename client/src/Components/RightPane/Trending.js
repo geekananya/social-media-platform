@@ -4,11 +4,11 @@ export default function Trending(){
             <h2 className="tc head">Trending</h2>
             <div className="ml3">
                 <p style={{textDecoration: 'underline'}}>Tags</p>
+                <p className="pointer">#sunflowers</p>
                 <p className="pointer">#nailart</p>
                 <p className="pointer">#g20summit</p>
-                <p className="pointer">#femalereservations</p>
-                <p className="pointer">#anime</p>
-                <p className="pointer">#genshinimpact</p>
+                <p className="pointer">#night</p>
+                <p className="pointer">#newuser</p>
             </div>
             <hr className="w-75" align="left"/>
             <div className="ml3">

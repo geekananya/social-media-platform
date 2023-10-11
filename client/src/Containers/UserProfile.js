@@ -1,21 +1,51 @@
+import { useEffect, useState} from 'react'
 import Posts from './Posts'
 
 export default function UserProfile(props){
-    console.log("User Profile");
+
+    const [usermeta, setUsermeta] = useState({});
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() =>{
+        
+        console.log("EP useeffect");
+        fetch(`http://localhost:8080/userinfo/?email=${props.email}`)
+        .then(resp=> resp.json())
+        .then(user=> {
+            console.log("userb4", user);
+            setUsermeta({
+                username: user.username,
+                id: user._id,
+                doj: user.join_date,
+                friends: 0
+            })
+            console.log("user after", user);
+            setLoading(false);
+        })
+        .catch(err=>console.log("Caught error while fetching", err))
+    }, [props.email])
+
+    console.log("id", usermeta.id);  
+    // console.log("User Profile email", props.email);
     return(
         <div>
             <div className="flex justify-around items-center pr2">
-                <img src={`${props.user.pfp_url}`} alt='pfp' className='w-40' height={'auto'}/>
+                <img src={`https://robohash.org/ananya?set=set2&size=300x300`} 
+                    alt='pfp' 
+                    className='w-40' 
+                    height={'auto'}
+                />
+                {loading? <h2 className='tc base-color-text1 ma3'>Loading...</h2>:
                 <div className='mr0'>
-                    <h1 className="f2 head tc mv5">{props.user.username}</h1>
-                    <p className='ma0'>User #{`${props.userId}`}</p>
-                    <p className="f4 tc">{`Friends - ${props.user.friends}`}</p>
-                    <p className="f4 tc">{`Total Reactions - ${props.user.reactions}`}</p>
-                    <p>{`Account Active Since: ${props.age}`}</p>
-                </div>
+                    <h1 className="f2 head tc mv4">{usermeta.username}</h1>
+                    <p className='ma0 tc'>User #{`${usermeta.id}`}</p>
+                    <p className="f4 tc">{`Friends - ${usermeta.friends}`}</p>
+                    {/* <p className="f4 tc">{`Total Reactions - ${props.user.reactions}`}</p> */}
+                    <p className='b'>{`Account Active Since: ${usermeta.doj.substring(0,10)}`}</p>
+                </div>}
             </div>
-            <h2>Posts and Activity</h2>
-            <Posts url={props.url} />
+            <h1 className='mt4 mb0 base-color-text1'>Posts and Activity</h1>
+            <Posts entrypoint="postsbyuser" query = {`/?id=${usermeta.id}`} handleClick={()=>{}}/>
         </div>
     )
 }

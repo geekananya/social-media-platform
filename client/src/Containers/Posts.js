@@ -9,26 +9,34 @@ export default class Posts extends React.Component{
         super();
         this.state = {
             posts: [],
-            imagePosts: [],
             loading: true,
         }
     }
-
-    componentDidMount(){
-        fetch(this.props.url)
-        .then(response => response.json())
-        .then(obj => {
-            this.setState({posts: obj.posts});
-        })
-        console.log("Text posts loaded");
-        fetch('https://nature-image-api.vercel.app/search?q=sunflower')
-        .then(response => response.json())
-        .then(obj => {
-            this.setState({imagePosts: obj.images, loading: false});
-        })
-        console.log("Images loaded");
+    componentDidMount() {
+        this.fetchData();
     }
-        
+    
+    componentDidUpdate(prevProps) {
+        if (this.props.query !== prevProps.query) {
+            this.fetchData();
+        }
+    }
+    
+    fetchData() {
+    // Request to server
+    fetch(`http://localhost:8080/${this.props.entrypoint}${this.props.query}`)
+        .then((resp) => resp.json())
+        .then((obj) =>
+        this.setState({
+            posts: obj,
+            loading: false,
+        })
+        )
+        .catch((err) => console.log("Caught error while fetching", err));
+        console.log("Text posts loaded");
+        console.log("Posts->", this.state.posts);
+    }
+
     toggleLike = (event) =>{
         let elem = event.target;
         elem.setAttribute("src", (elem.getAttribute("src") === like)? liked: like);
@@ -42,30 +50,29 @@ export default class Posts extends React.Component{
         next.textContent = (elem.getAttribute("src") === liked)? likes+1: likes-1;
     }
         
-    imageOrText = (post, imagePosts) => {
-        let img = imagePosts[(post.userId)%25];
-        return Math.random()<0.5 
-            ? <p className='base-color-text1'>{post.body}</p> 
+    imageOrText = (post) => {
+        return !post.image 
+            ? <p className='base-color-text1 ma0'>{post.body}</p> 
             : <div>
-                <p className='ma2'>{img.title}</p>
-                <img src={img.image} alt='post' className='w-100 h-auto br3' />
+                <p className='ma2'>{post.title}</p>
+                <img src={post.body} alt='post' className='w-100 h-auto br3' />
             </div>
         ;
     }
     
-    getPosts = (posts, imagePosts)=>{
-        if(posts.length===0)    return <div></div>;
+    getPosts = (posts)=>{
+        if(posts.length===0)    return <h1 className='base-color-text1 tc mt4'>No Posts Available!</h1>;
         return posts.map((post)=>
             <div>
                 <div className='flex items-center pointer'
-                    onClick = {()=>this.props.handleClick(post.userId)}
+                    onClick = {()=>this.props.handleClick(post.poster_id)}
                     >
                     {/*user-info*/}
-                    <img src={`https://robohash.org/${post.userId}?set=set5&size=30x30`} alt='pfp' className='br-pill bg-dark-blue mh2'/>
-                    <p className='f4 base-color-text2'>{`User #${post.userId}`}</p>
+                    <img src={`https://robohash.org/${post.poster_id}?set=set5&size=30x30`} alt='pfp' className='br-pill bg-dark-blue mh2'/>
+                    <p className='f4 base-color-text2'>{`${post.poster}`}</p>
                 </div>
                     {/*post*/}
-                {this.imageOrText(post, imagePosts)}
+                {this.imageOrText(post)}
                 <div className='flex justify-between items-center'>
                         {/*Tags*/}
                     <p className='f6 pointer mw-40'>{
@@ -85,14 +92,13 @@ export default class Posts extends React.Component{
     }
     
     render(){
-        console.log("Posts");
-        const {posts, imagePosts, loading} = this.state;
+        const {posts, loading} = this.state;
         return (
             <>
                 {
                     loading ? <h1 className='tc base-color-text1 ma3'>Loading...</h1> : 
                     <div>
-                        {this.getPosts(posts, imagePosts)}
+                        {this.getPosts(posts)}
                     </div>
                 }
             </>
