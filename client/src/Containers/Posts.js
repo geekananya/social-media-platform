@@ -24,7 +24,7 @@ export default class Posts extends React.Component{
     
     fetchData() {
     // Request to server
-    fetch(`http://localhost:8080/${this.props.entrypoint}${this.props.query}`)
+    fetch(`/${this.props.entrypoint}${this.props.query}`)
         .then((resp) => resp.json())
         .then((obj) =>
         this.setState({

@@ -19,7 +19,7 @@ class CreatePost extends Component {
 
     componentDidMount(){
         //find info about current user
-        fetch(`http://localhost:8080/userinfo/?email=${this.props.email}`)
+        fetch(`/userinfo/?email=${this.props.email}`)
         .then(resp=> resp.json())
         .then(user=> {
             this.nam = user.name;
@@ -34,7 +34,7 @@ class CreatePost extends Component {
         if(this.state.uploadImage) body=this.state.image;
         else body=this.state.text
         //Post to server
-        fetch("http://localhost:8080/createpost", {
+        fetch("/createpost", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

@@ -9,7 +9,7 @@ export default function UserProfile(props){
     useEffect(() =>{
         
         console.log("EP useeffect");
-        fetch(`http://localhost:8080/userinfo/?email=${props.email}`)
+        fetch(`/userinfo/?email=${props.email}`)
         .then(resp=> resp.json())
         .then(user=> {
             setUsermeta({

@@ -14,7 +14,7 @@ export default function Content(props){
 
     async function fetchEmail(id) {
     try {
-      const response = await fetch(`http://localhost:8080/userinfobyid/?id=${id}`);
+      const response = await fetch(`/userinfobyid/?id=${id}`);
       const user = await response.json();
       return user.email;
     } catch (error) {
@@ -24,7 +24,7 @@ export default function Content(props){
     }
     async function fetchId(email) {
         try {
-        const response = await fetch(`http://localhost:8080/userinfo/?email=${email}`);
+        const response = await fetch(`/userinfo/?email=${email}`);
         const user = await response.json();
         return user._id;
         } catch (error) {
@@ -47,7 +47,7 @@ export default function Content(props){
             console.log("ERR:", error);
         }
     }, []);
-    
+
     return(
         <div className='content pa3 pt0'>
             {

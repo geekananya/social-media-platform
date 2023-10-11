@@ -24,7 +24,7 @@ function Register(props){
       setErrorMessage("");
       //Request to server
       const name = fname.current.value + ' ' + lname.current.value;
-      fetch("http://localhost:8080/register", {
+      fetch("/register", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
