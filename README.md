@@ -1,15 +1,20 @@
 # Connect: A Social Media Platfrom
-Built Using: ReactJS. [Deployed here]()
+Built Using: ReactJS, NodeJs, Express and MongoDB. [Deployed here]()
 
 # Run the project
-1. Clone the repository
-2. Run the command `npm install` on terminal to install required packages.
-3. Run `npm start`.
-4. Since user authentication has not yet been implemented, simply click the 'Sign in' or 'Sign up' button to access the dashboard.
+1. Clone this repository.
+2. Migrate to the client directory by running `cd server` command on terminal.
+3. Run the command `npm install` on terminal to install required packages.
+4. Run `npm start` to start the server.
+2. Migrate to the client directory by running `cd client` command on terminal.
+3. Run the command `npm install` on terminal to install required packages.
+4. Run `npm start`.
+5. You will need to configure your own Firebase Auth using your APIKey. Refer to `client/src/firebaseConfig-sample.js` file.
 
 # Visit and use the platform
--
-- Users can **sign in/register through email or Google account.**
+- Use this [Deployment Link]() to visit the platform.
+- By default you are a **guest user**. Click on 'Sign-in' button to access your account.
+- You can sign in/register through **email** or **Google account.**
 
 # Functionalities
 - **Fully responsive** on desktop and mobile.
