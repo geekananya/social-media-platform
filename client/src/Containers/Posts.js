@@ -24,7 +24,7 @@ export default class Posts extends React.Component{
     
     fetchData() {
     // Request to server
-    fetch(`/${this.props.entrypoint}${this.props.query}`)
+    fetch(`https://connect-app-backend-7hpt.onrender.com/${this.props.entrypoint}${this.props.query}`)
         .then((resp) => resp.json())
         .then((obj) =>
         this.setState({

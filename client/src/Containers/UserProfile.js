@@ -7,7 +7,7 @@ export default function UserProfile(props){
     const [loading, setLoading] = useState(true);
 
     useEffect(() =>{
-        fetch(`/userinfo/?email=${props.email}`)
+        fetch(`https://connect-app-backend-7hpt.onrender.com/userinfo/?email=${props.email}`)
         .then(resp=> resp.json())
         .then(user=> {
             setUsermeta({

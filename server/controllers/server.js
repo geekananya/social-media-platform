@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
+const PORT = process.env.PORT || 8080;
 
 
 //set-up DB
@@ -62,7 +63,7 @@ app.post('/register', async (req, res)=>{
 )
 
 app.get("/publicposts", (req, res)=>{    //without signin
-  db.collection("posts").find({public:true}).toArray()   //get timeline(public)
+  db.collection("posts").find({"public":true}).toArray()   //get timeline(public)
   .then(posts=> res.send(posts))
   .catch(error=> res.status(400).send("Can't load posts"+ error))
 })
@@ -97,7 +98,7 @@ app.get("/userinfobyid", (req,res)=>{
 
 app.post('/createpost', async (req, res)=>{
   try{
-    const {hasImg, body, title, tags, public, poster, poster_id} = req.body;
+    const {hasImg, body, title, tags, publ, poster, poster_id} = req.body;
     //Insert post in DB
     let n = await db.collection("posts").countDocuments();
     db.collection("posts").insertOne({
@@ -109,7 +110,7 @@ app.post('/createpost', async (req, res)=>{
       body: ReportBody,
       tags: tags,
       reactions: 0,
-      public: public
+      "public": publ
     })
     .then(res.send("Post Created Successfully"))
     .catch(error=> res.status(400).send("Error inserting: "+ error))
@@ -118,7 +119,6 @@ app.post('/createpost', async (req, res)=>{
   }
 })
 
-const PORT = process.env.PORT || 8080;
 app.listen(PORT, ()=>{
   console.log(`Server is listening to port ${PORT}`);
 });

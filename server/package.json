@@ -5,12 +5,17 @@
   "main": "controllers/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon"
+    "build": "babel controllers -d build",
+    "prestart": "npm run build",
+    "start": "node build/server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "", 
   "license": "ISC",
   "dependencies": {
+    "@babel/cli": "^7.23.0",
+    "@babel/core": "^7.23.0",
+    "@babel/preset-env": "^7.22.20",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "mongodb": "^6.1.0"

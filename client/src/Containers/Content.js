@@ -14,7 +14,7 @@ export default function Content(props){
 
     async function fetchEmail(id) {
     try {
-      const response = await fetch(`/userinfobyid/?id=${id}`);
+      const response = await fetch(`https://connect-app-backend-7hpt.onrender.com/userinfobyid/?id=${id}`);
       const user = await response.json();
       return user.email;
     } catch (error) {
@@ -24,7 +24,7 @@ export default function Content(props){
     }
     async function fetchId(email) {
         try {
-        const response = await fetch(`/userinfo/?email=${email}`);
+        const response = await fetch(`https://connect-app-backend-7hpt.onrender.com/userinfo/?email=${email}`);
         const user = await response.json();
         return user._id;
         } catch (error) {

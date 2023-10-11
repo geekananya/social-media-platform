@@ -19,7 +19,7 @@ class CreatePost extends Component {
 
     componentDidMount(){
         //find info about current user
-        fetch(`/userinfo/?email=${this.props.email}`)
+        fetch(`https://connect-app-backend-7hpt.onrender.com/userinfo/?email=${this.props.email}`)
         .then(resp=> resp.json())
         .then(user=> {
             this.nam = user.name;
@@ -34,7 +34,7 @@ class CreatePost extends Component {
         if(this.state.uploadImage) body=this.state.image;
         else body=this.state.text
         //Post to server
-        fetch("/createpost", {
+        fetch("https://connect-app-backend-7hpt.onrender.com/createpost", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

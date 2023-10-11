@@ -24,7 +24,7 @@ function Register(props){
       setErrorMessage("");
       //Request to server
       const name = fname.current.value + ' ' + lname.current.value;
-      fetch("/register", {
+      fetch("https://connect-app-backend-7hpt.onrender.com/register", {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

@@ -4,3 +4,6 @@
 # config files
 .env
 data-entry.js
+
+#Build
+/build
