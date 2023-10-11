@@ -15,6 +15,7 @@ Built Using: ReactJS. [Deployed here]()
 - **Fully responsive** on desktop and mobile.
 - Any unregistered visitor can view **public posts**.
 - Registered users can **create new posts**.
+- User can choose to make their posts public or private(visible only to registered users).
 - Users can **like posts.**
 - On clicking **'User Profile'** from the navigation menu, user will be redirected to his/her profile.
 - The **Home** button can be used to revisit the timeline.
