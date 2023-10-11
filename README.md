@@ -9,7 +9,7 @@ Built Using: ReactJS, NodeJs, Express and MongoDB. [Deployed here]()
 2. Migrate to the client directory by running `cd client` command on terminal.
 3. Run the command `npm install` on terminal to install required packages.
 4. Run `npm start`.
-5. You will need to configure your own Firebase Auth using your APIKey. Refer to `client/src/firebaseConfig-sample.js` file.
+5. Set relevant environment variables to configure Firebase Auth.
 
 # Visit and use the platform
 - Use this [Deployment Link]() to visit the platform.
@@ -33,7 +33,7 @@ Built Using: ReactJS, NodeJs, Express and MongoDB. [Deployed here]()
 ### Libraries and Frameworks:
 - **MERN** (React, NodeJs, Express, MongoDB)
 - **Tachyons** for styling
-- **Dotenv** to manage environment variables
+- **Dotenv** to load environment variables
 - **React-burger-menu** for hamburger menu feature
 
 ### APIs and Services:
