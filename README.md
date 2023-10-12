@@ -13,6 +13,7 @@ Built Using: ReactJS, NodeJs, Express and MongoDB. [Deployed here](https://conne
 
 # Visit and use the platform
 - Use this [Deployment Link](https://connect-social-media-app.netlify.app/) to visit the platform.
+- Kindly wait for the website to load completely. It may take a few minutes. 
 - By default you are a **guest user**. Click on 'Sign-in' button to access your account.
 - You can sign in/register through **email** or **Google account.**
 - I created a dummy account you can sign into:
