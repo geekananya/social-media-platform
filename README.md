@@ -1,4 +1,4 @@
-# Connect: A Social Media Platfrom
+# Connect: A Social Media Platform
 Built Using: ReactJS, NodeJs, Express and MongoDB. [Deployed here](https://connect-social-media-app.netlify.app/)
 
 # Run the project
