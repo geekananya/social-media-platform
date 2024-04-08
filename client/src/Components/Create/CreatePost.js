@@ -77,7 +77,10 @@ class CreatePost extends Component {
             <div className="newpost-wrap flex justify-center items-center vh-100"
                 onClick={this.props.closeCreate}
             >
-                <div className="newpost pa4 bg-white br3 ba b--black-10 w-40 base-color-text1 base-colour-bg"
+                <div className="
+                    absolute z-5
+                    newpost-ns
+                    pa4 bg-white br3 ba b--black-10 w-40-ns w-100 base-color-text1 base-colour-bg"
                     onClick={(event)=>event.stopPropagation()}
                 >
                     <h1 className="f3 tc">Create a New Post</h1>

@@ -1,7 +1,7 @@
 .newpost{
     position: absolute;
     top: 18%;
-    left: 30%;
+    /* left: 30%; */
     z-index: 10;
 }
 .newpost-wrap{
@@ -15,10 +15,10 @@
     background-color: rgba(0, 0, 0, 0.7);
 }
 
-@media only screen and (max-width: 400px){
-    .newpost{
+/* @media only screen and (max-width: 400px){
+    .w-40{
         width: 100%;
         left: 0;
         border-radius: 0;
     }
-}
+} */

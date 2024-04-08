@@ -1,10 +1,11 @@
 import React from 'react'
-import Posts from '../Containers/Posts'
+import Posts from '../../Containers/Posts'
+import './Guest.css'
 
 export default function Guest(props){
 
     return(
-        <div className='flex justify-center content pa3 pt0'>
+        <div className='guest flex justify-center content pa3 pt0'>
             <div className='w-50'>
                 <div className='flex justify-between items-center sticky base-color-bg'>
                     <h1 className='head base-color-text1 ma0 pl3 pv3'>{`>>Timeline`}</h1>

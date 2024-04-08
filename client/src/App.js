@@ -2,7 +2,7 @@ import LoginPage from './Components/LoginPage/LoginPage'
 import Dashboard from './Containers/Dashboard'
 import {useState, useEffect} from 'react';
 import './App.css';
-import Guest from './Components/Guest';
+import Guest from './Components/Guest/Guest';
 
 function App() {
 
