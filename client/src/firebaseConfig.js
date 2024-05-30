@@ -3,12 +3,12 @@ import { getAuth, setPersistence, browserLocalPersistence } from "firebase/auth"
 
 // FireBase config
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_apiKey,
+  apiKey: import.meta.env.VITE_apiKey,
   authDomain: "connect-social-media-platform.firebaseapp.com",
   projectId: "connect-social-media-platform",
   storageBucket: "connect-social-media-platform.appspot.com",
-  messagingSenderId: process.env.REACT_APP_messagingSenderId,
-  appId: process.env.REACT_APP_appId
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId
 };
  
 initializeApp(firebaseConfig);

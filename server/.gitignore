@@ -1,9 +1,3 @@
-# dependencies
 /node_modules
-
-# config files
 .env
-data-entry.js
-
-#Build
-/build
+data/index.js
