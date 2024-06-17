@@ -13,7 +13,7 @@ export default function UserProfile(){
     const dispatch = useDispatch();
 
     useEffect(() =>{
-        fetch(`api/users/${userEmail}`)
+        fetch(`https://connect-app-backend-7hpt.onrender.com/users/${userEmail}`)
         .then(resp=> resp.json())
         .then(user=> {
             console.log(user[0])
