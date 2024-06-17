@@ -20,7 +20,7 @@ const Test = () =>{
         for (let value of formdata.values()){
             console.log(value)
         }
-        fetch("/api/uploadtest", {
+        fetch("https://connect-app-backend-7hpt.onrender.com/uploadtest", {
             method: 'POST',
             body: formdata
         })

@@ -28,7 +28,7 @@ function Register(){
     try{
       const formdata = new FormData(event.target);
 
-      fetch("/api/auth/register", {
+      fetch("https://connect-app-backend-7hpt.onrender.com/auth/register", {
         method: 'POST',
         body: formdata,
       })
@@ -62,7 +62,7 @@ function Register(){
       formdata.append("location", "")
       formdata.append("image", auth.currentUser.photoURL)
 
-      fetch("/api/register", {
+      fetch("https://connect-app-backend-7hpt.onrender.com/register", {
         method: 'POST',
         body: formdata
       })

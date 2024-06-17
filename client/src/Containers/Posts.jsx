@@ -24,7 +24,7 @@ export default function Posts(){
     // Request to server
         try {
             // console.log("posts", posts);
-            const response = await fetch(`/api/posts/${(current=='profile')?`${userEmail}/posts`:tag}`);
+            const response = await fetch(`https://connect-app-backend-7hpt.onrender.com/posts/${(current=='profile')?`${userEmail}/posts`:tag}`);
             if (!response.ok) {
               throw new Error(`HTTP error! status: ${response.status}`);
             }

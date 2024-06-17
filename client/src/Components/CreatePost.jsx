@@ -23,7 +23,7 @@ const CreatePost = () =>{
             console.log(value)
         }
 
-        fetch("/api/createpost", {
+        fetch("https://connect-app-backend-7hpt.onrender.com/createpost", {
             method: 'POST',
             body: formdata
         })
