@@ -1,5 +1,14 @@
 # Connect: A Social Media Platform
-Built Using: ReactJS, NodeJs, Express and MongoDB. [Deployed here](https://connect-social-media-app.netlify.app/)
+Built Using: ReactJS, NodeJs, Express and MongoDB.
+
+# Features
+- **Fully responsive** on desktop and mobile.
+- Secure Authentication
+- Create new text and image posts.
+- Like posts
+- Search posts by tags.
+- View and Edit your profile.
+- View Trending tags and Active users
 
 # Run the project
 1. Clone this repository.
@@ -11,34 +20,33 @@ Built Using: ReactJS, NodeJs, Express and MongoDB. [Deployed here](https://conne
 4. Run `npm start`.
 5. Set relevant environment variables to configure Firebase Auth.
 
-# Visit and use the platform
-- Use this [Deployment Link](https://connect-social-media-app.netlify.app/) to visit the platform.
-- Kindly wait for the website to load completely. It may take a few minutes. 
-- By default you are a *guest user*. Click on 'Sign-in' button to access your account.
-- You can sign in/register through **email** or **Google account.**
-- I created a dummy account you can sign into:
-  
-  > Email: developer@test.com
+### Setup the environment variables
+`client\.env.local`
+| Variable  | Description |
+| ------------- | ------------- |
+| VITE_apiKey  | Firebase API Key  |
+| VITE_messagingSenderId  | Firebase Messaging sender ID  |
+| VITE_appId  | Firebase app id  |
+| proxy  | Server API URL (accessible through import.meta.env.proxy)  |
+| VITE_defaultemail  | Testing email for easy login (Make sure it represents a valid user in your Firebase and DB) |
+| VITE_defaultpass  | Corresponding password for testing email  |
 
-  > Password: testing
-
-# Functionalities
-- **Fully responsive** on desktop and mobile.
-- Any unregistered visitor can view **public posts**.
-- Registered users can **create new text and image posts**.
-- Users can **like posts.**
-- Functionality to **search** posts by tags.
-- View and Edit your profile.
-- The Desktop version shows **Trending tags and Active users.**
-- User can **Logout** to move back to the landing page.
+`server\.env`
+| Variable  | Description |
+| ------------- | ------------- |
+| MONGODB_URI  | Your MongoDB deployment URI  |
+| PORT  | Server Port number  |
+| IMGUR_CLIENT_ID  | Imgur API client ID  |
+| IMGUR_CLIENT_SECRET  | Imgur client secret  |
+| VITE_messagingSenderId  | Firebase API Key  |
 
 # Dependencies
 ### Libraries and Frameworks:
 - **MERN** (React, NodeJs, Express, MongoDB)
-- **Redux** for State Management
+- **Redux-Toolkit** for State Management
 - **Tachyons** for styling
-- **Dotenv** to load environment variables
-- **Fontawesome** library for icons
+- **Dotenv** to load environment variables locally
+- **Fontawesome** for icons
 
 ### APIs and Services:
 - **Firebase** for User Authentication
@@ -51,5 +59,9 @@ Built Using: ReactJS, NodeJs, Express and MongoDB. [Deployed here](https://conne
 - **Render** for Backend
 - **MongoDB Atlas** for Database
 
-# Thank You!
-You can contact me at - <mail.ananyaverma23@gmail.com>
+# Contributing
+Contributions are welcome! Here's how you can contribute:
+- [Open an issue](https://github.com/geekananya/social-media-platform/issues/new) if you believe you've encountered a bug.
+- Make a [pull request](https://github.com/geekananya/social-media-platform/fork) to add new features/make quality-of-life improvements/fix bugs.
+- Star this repository to help it reach more people!
+- Make feature requests.
