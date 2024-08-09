@@ -10,7 +10,7 @@ import comment from '../assets/icons/comment.svg';
 
 export default function Posts(){
     
-    const [posts, setPosts] = useState([]);
+    const [posts, setPosts] = useState(null);
     const tag = useSelector(state => state.search.tag);
     const current = useSelector(state=> state.content.current);
     const userEmail = useSelector(state => state.auth.userEmail);
