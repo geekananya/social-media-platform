@@ -71,7 +71,7 @@ export default function Posts(){
                     // onClick = {()=>props.handleClick(post.poster_id)}
                     >
                     {/*user-info*/}
-                    <img src={(post.userPicturePath)||`robohashhh`} alt='pfp' width={50} height={50} className=' bg-dark-blue mh2 ml3'/>
+                    <img src={(post.userPicturePath)||`https://robohash.org/ananya?set=set2&size=200x200`} alt='pfp' width={50} height={50} className=' bg-dark-blue mh2 ml3'/>
                     <p className='f4 base-color-text2'>{`${post.name}`}</p>
                 </div>
                     {/*post*/}
