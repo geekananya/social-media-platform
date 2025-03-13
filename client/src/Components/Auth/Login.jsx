@@ -84,8 +84,7 @@ const Login = () =>{
                             type="text"
                             className="input-reset ba b--black-20 pa2 mb2 db w-100"
                             ref={email}
-                            // defaultValue={import.meta.env.VITE_defaultemail}
-                            value={"anya" ?? varr}
+                            defaultValue={import.meta.env.VITE_defaultemail}
                             required
                             autoComplete="on"
                             pattern="[^@]*@[^.]*\..*"
