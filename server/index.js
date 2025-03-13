@@ -8,14 +8,14 @@ import morgan from "morgan";
 import fileUpload from 'express-fileupload'
 import path from "path";    //native package
 import { fileURLToPath } from "url";
-import { register } from "./controllers/auth.js";
-import authRoutes from "./routes/auth.js";
+// import { register } from "./controllers/auth.js";
+// import authRoutes from "./routes/auth.js";
 import userRoutes from "./routes/users.js";
 import postRoutes from "./routes/posts.js";
 import { createPost} from "./controllers/posts.js";
 import { createUser } from "./controllers/users.js";
 // import { verifyToken } from "./middleware/auth.js";
-/* MOCK DATA */
+/* DUMMY DATA */
 // import User from "./models/User.js";
 // import Post from "./models/Post.js";
 // import { users, posts } from "./data/index.js";

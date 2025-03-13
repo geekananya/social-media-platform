@@ -27,7 +27,7 @@ Built Using: ReactJS, NodeJs, Express and MongoDB.
 | VITE_apiKey  | Firebase API Key  |
 | VITE_messagingSenderId  | Firebase Messaging sender ID  |
 | VITE_appId  | Firebase app id  |
-| proxy  | Server API URL (accessible through import.meta.env.proxy)  |
+| proxy  | Server API URL (accessible through import.meta.env.VITE_proxy)  |
 | VITE_defaultemail  | Testing email for easy login (Make sure it represents a valid user in your Firebase and DB) |
 | VITE_defaultpass  | Corresponding password for testing email  |
 

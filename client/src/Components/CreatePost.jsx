@@ -23,7 +23,7 @@ const CreatePost = () =>{
             console.log(value)
         }
 
-        fetch("https://connect-app-backend-7hpt.onrender.com/createpost", {
+        fetch(`${import.meta.env.VITE_proxy}/createpost`, {
             method: 'POST',
             body: formdata
         })

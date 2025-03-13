@@ -12,7 +12,6 @@ export default function Timeline(){
             case 'posts': return <Posts/>;
             case 'profile': return <Profile/>;
             case 'createPost': return <CreatePost/>;
-            // case 'posts': return <Posts/>;
             default: return <h2>Nothing to show!</h2>;
         }
     }

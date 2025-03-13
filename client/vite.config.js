@@ -7,14 +7,10 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: "https://connect-app-backend-7hpt.onrender.com", // Backend server URL
+        target: "http://localhost:8080", // Backend server URL
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''), // Optional: rewrite the path if needed
       },
     },
   },
 })
-
-
-//import.meta.env.proxy
-// https://connect-app-backend-7hpt.onrender.com

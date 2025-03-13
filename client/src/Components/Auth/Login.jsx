@@ -7,6 +7,7 @@ import { setMobile, setDesktop } from '../../app/reducers/screenReducer';
 import { NavLink, useNavigate } from 'react-router-dom';
 import logo from '../../assets/logo.jpg'
 import google from '../../assets/google.png';
+import { combineSlices } from '@reduxjs/toolkit';
 // import './Login.css'
 
 const Login = () =>{
@@ -20,6 +21,12 @@ const Login = () =>{
     const dispatch = useDispatch();
     const navigate = useNavigate();
     
+    const [varr, setVarr] = useState("ananya verma")
+    function handle(event){
+        setVarr(event.target.value);
+        console.log("set")
+    }
+
     // const navigate = useNavigate();
     
     const handleSubmit = async () => {
@@ -77,10 +84,12 @@ const Login = () =>{
                             type="text"
                             className="input-reset ba b--black-20 pa2 mb2 db w-100"
                             ref={email}
-                            defaultValue={import.meta.env.VITE_defaultemail}
+                            // defaultValue={import.meta.env.VITE_defaultemail}
+                            value={"anya" ?? varr}
                             required
                             autoComplete="on"
                             pattern="[^@]*@[^.]*\..*"
+                            onChange={handle}
                         />
                         </div>
                         <div className="mb3">
